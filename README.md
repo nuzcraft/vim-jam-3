@@ -7,6 +7,9 @@ Runs 9/9-9/19
 Focus: Multi-Use
 Theme: TBA
 
+Assets by Kenney.nl
+Thanks Kenney!
+
 ## Multi-Use Focus
 
 grappling hook pulls you to things + pulls things to you + swings things around at different lengths
