@@ -1,14 +1,15 @@
 extends KinematicBody2D
+class_name Player
 
-export(int) var JUMP_VELOCITY = 120
-export(int) var JUMP_RELEASE_VELOCITY = 60
+export(int) var JUMP_VELOCITY = 240
+export(int) var JUMP_RELEASE_VELOCITY = 120
 export(int) var DOUBLE_JUMP_COUNT = 1
 export(int) var ACCELERATION = 150
 export(float) var ACCELERATION_DAMPING = 0.12
-export(int) var FRICTION = 400
-export(int) var GRAVITY = 400
-export(int) var EXTRA_GRAVITY = 150
-export(int) var MAX_GRAVITY = 600
+export(int) var FRICTION = 800
+export(int) var GRAVITY = 800
+export(int) var EXTRA_GRAVITY = 300
+export(int) var MAX_GRAVITY = 1200
 
 enum {
 	MOVE
@@ -37,13 +38,13 @@ func move_state(input, delta):
 	
 	if input.x == 0:
 		apply_friction(delta)
-#		if is_on_floor():
-#			animatedSprite.animation = "idle"
+		if is_on_floor():
+			animatedSprite.animation = "idle"
 	if input.x != 0:
 		apply_acceleration(input, delta)
 		animatedSprite.flip_h = input.x > 0
-#		if is_on_floor():
-#			animatedSprite.animation = "running"
+		if is_on_floor():
+			animatedSprite.animation = "running"
 		
 	if is_on_floor():
 		double_jump = DOUBLE_JUMP_COUNT
@@ -54,28 +55,21 @@ func move_state(input, delta):
 			buffered_jump = false
 		
 	if not is_on_floor():
+		animatedSprite.animation = "jump"
 		if Input.is_action_just_released("ui_up") and velocity.y < -JUMP_RELEASE_VELOCITY:
 			velocity.y = -JUMP_RELEASE_VELOCITY
 
 		if velocity.y > 0:
 			velocity.y += EXTRA_GRAVITY * delta
-#			if double_jump >= DOUBLE_JUMP_COUNT:
-#				animatedSprite.animation = "jump"
-#				animatedSprite.frame = 1
-#		else:
-#			if double_jump >= DOUBLE_JUMP_COUNT:
-#				animatedSprite.animation = "jump"
-#				animatedSprite.frame = 0
 			
 		if Input.is_action_just_pressed("ui_up") and double_jump > 0:
 			velocity.y = -JUMP_VELOCITY
 			double_jump -= 1
-#			animatedSprite.animation = "double jump"
 			
 		if Input.is_action_just_pressed("ui_up"):
 			buffered_jump = true
 			jumpBufferTimer.start()
-		
+	
 	var was_on_floor = is_on_floor()	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	if was_on_floor and not is_on_floor() and velocity.y > 0:

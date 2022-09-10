@@ -5,52 +5,61 @@ Game created for Vim Jam 3
 https://itch.io/jam/vimjam3
 Runs 9/9-9/19
 Focus: Multi-Use
-Theme: TBA
+Theme: Turn Up the Heat
 
 Assets by Kenney.nl
 Thanks Kenney!
 
-## Multi-Use Focus
+## The One Ring
 
-grappling hook pulls you to things + pulls things to you + swings things around at different lengths
+### Goal
 
-guns with extra recoil for movement + shooting
+Deliver the ring to Mt. Doom
 
-you are a swiss army knife
+### Obstacle Ideas
 
-use multi-use tape to tape things up or tape things together
+- Spikes
+- Pits
+- Enemies (patrol?, sight?)
+- Traps
 
-phone with multiple uses ingame
+### Multiple Use Ideas
 
-keyblade - key + sword
+- invisiblity
+- see hidden things
+- slows time
+- adds double jump
+- changes player movement speeds
+- certain enemies drawn to you
+- timer? nazgul or the eye finds you
 
-kirby style turn into useful things
-
-'everything is a nail' where a hammer has multiple uses, but the same use kinda
-
-spork - spoon and fork
-
-spy gadgets
-
-dagger throw then teleport
-
-portal (with blocks, turrets, lasers)
-
-hobbit and the ring..., invisible to some enemies, more visible to other enemies, dead zone, has different platforms, different physics? less gravity? double jump? move slower?
-
-environment has multiple uses?
-
-## Simple Gameplay
+### Simple Gameplay
 
 Platformer, godot
 
 - platforms
 - - 3 levels?
 - - 1 big level}?
-- enemies
-- - patrol?
-- - sight cones?
 - player can't fight, only takes damage
-- collectables
-- triggers that unlock parts of the map
-- some sort of item that can only be used a few time before some sort of reset
+- collectables?
+- triggers that unlock parts of the map?
+- the ring can be used to access more of the map
+
+## NEEDS
+
+- [x] Player w/ good platformer controls
+  - [x] add jumping animation
+  - [x] add running animation
+  - [x] updated movement values
+- [x] Goal/Finish line to reach
+- [ ] Scene for Winning
+- [ ] Quick Restart button
+- [ ] create second tileset w/ lava
+- [ ] add lava to test map
+- [ ] touching lava restarts the scene
+- [ ] add dead earth to 2nd tile set
+- [ ] add dead earth to test map
+- [ ] add mechanic to put on the ring
+- [ ] make it so the ring adds a funky shaker to the screen
+- [ ] make it so putting on the ring adds or removes collisiosn and blocks
+- [ ] make it so putting on the ring changes the player sprite
