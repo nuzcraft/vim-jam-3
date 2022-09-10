@@ -52,11 +52,11 @@ Platformer, godot
   - [x] add running animation
   - [x] updated movement values
 - [x] Goal/Finish line to reach
-- [ ] Scene for Winning
-- [ ] Quick Restart button
-- [ ] create second tileset w/ lava
-- [ ] add lava to test map
-- [ ] touching lava restarts the scene
+- [x] Scene for Winning
+- [x] Quick Restart button
+- [x] create second tileset w/ lava
+- [x] add lava to test map
+- [x] touching lava restarts the scene
 - [ ] add dead earth to 2nd tile set
 - [ ] add dead earth to test map
 - [ ] add mechanic to put on the ring

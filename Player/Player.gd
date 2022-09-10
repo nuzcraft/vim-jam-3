@@ -24,11 +24,15 @@ var coyote_jump = false
 onready var animatedSprite := $AnimatedSprite
 onready var jumpBufferTimer := $JumpBufferTimer
 onready var coyoteJumpTimer := $CoyoteJumpTimer
+onready var liquidCollisionArea2D := $LiquidCollisionArea2D
 
 func _physics_process(delta):
 	var input = Vector2.ZERO
 	input.x = Input.get_axis("ui_left", "ui_right")
 	input.y = Input.get_axis("ui_up", "ui_down")
+	
+	if Input.is_action_just_pressed("restart_game"):
+		Events.emit_signal("restart_game")
 	
 	match state:
 		MOVE: move_state(input, delta)
@@ -92,3 +96,6 @@ func _on_JumpBufferTimer_timeout():
 
 func _on_CoyoteJumpTimer_timeout():
 	coyote_jump = false
+
+func _on_LiquidCollisionArea2D_body_entered(body):
+	Events.emit_signal("restart_game")
