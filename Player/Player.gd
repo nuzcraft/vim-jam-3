@@ -20,11 +20,14 @@ var state = MOVE
 var double_jump = DOUBLE_JUMP_COUNT
 var buffered_jump = false
 var coyote_jump = false
+var ring_on = false
 
 onready var animatedSprite := $AnimatedSprite
 onready var jumpBufferTimer := $JumpBufferTimer
 onready var coyoteJumpTimer := $CoyoteJumpTimer
 onready var liquidCollisionArea2D := $LiquidCollisionArea2D
+onready var ringSprite := $Ringsprite
+onready var ringSpriteAnimationPlayer := $Ringsprite/AnimationPlayer
 
 func _physics_process(delta):
 	var input = Vector2.ZERO
@@ -33,6 +36,14 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("restart_game"):
 		Events.emit_signal("restart_game")
+		
+	if Input.is_action_just_pressed("ui_accept"):
+		if not ring_on:
+			ring_on	= true
+			ringSpriteAnimationPlayer.play("put on")
+		else:
+			ring_on = false
+			ringSpriteAnimationPlayer.play("take off")
 	
 	match state:
 		MOVE: move_state(input, delta)
