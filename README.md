@@ -60,6 +60,6 @@ Platformer, godot
 - [x] add dead earth to 2nd tile set
 - [x] add dead earth to test map
 - [x] add mechanic to put on the ring
-- [ ] make it so the ring adds a funky shader to the screen
+- [x] make it so the ring adds a funky shader to the screen
 - [ ] make it so putting on the ring adds or removes collisiosn and blocks
 - [ ] make it so putting on the ring changes the player sprite

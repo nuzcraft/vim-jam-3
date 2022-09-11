@@ -41,9 +41,11 @@ func _physics_process(delta):
 		if not ring_on:
 			ring_on	= true
 			ringSpriteAnimationPlayer.play("put on")
+			Events.emit_signal("ring_on")
 		else:
 			ring_on = false
 			ringSpriteAnimationPlayer.play("take off")
+			Events.emit_signal("ring_off")
 	
 	match state:
 		MOVE: move_state(input, delta)
