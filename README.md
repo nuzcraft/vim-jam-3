@@ -57,8 +57,8 @@ Platformer, godot
 - [x] create second tileset w/ lava
 - [x] add lava to test map
 - [x] touching lava restarts the scene
-- [ ] add dead earth to 2nd tile set
-- [ ] add dead earth to test map
+- [x] add dead earth to 2nd tile set
+- [x] add dead earth to test map
 - [ ] add mechanic to put on the ring
 - [ ] make it so the ring adds a funky shaker to the screen
 - [ ] make it so putting on the ring adds or removes collisiosn and blocks
