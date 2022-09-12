@@ -1,9 +1,9 @@
 extends KinematicBody2D
 class_name Player
 
-export(int) var JUMP_VELOCITY = 240
+export(int) var JUMP_VELOCITY = 250
 export(int) var JUMP_RELEASE_VELOCITY = 120
-export(int) var DOUBLE_JUMP_COUNT = 1
+export(int) var DOUBLE_JUMP_COUNT = 0
 export(int) var ACCELERATION = 150
 export(float) var ACCELERATION_DAMPING = 0.12
 export(int) var FRICTION = 800
@@ -42,10 +42,12 @@ func _physics_process(delta):
 			ring_on	= true
 			ringSpriteAnimationPlayer.play("put on")
 			Events.emit_signal("ring_on")
+			animatedSprite.modulate = Color(1, 1, 1.2)
 		else:
 			ring_on = false
 			ringSpriteAnimationPlayer.play("take off")
 			Events.emit_signal("ring_off")
+			animatedSprite.modulate = Color(1, 1, 1)
 	
 	match state:
 		MOVE: move_state(input, delta)

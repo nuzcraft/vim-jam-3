@@ -4,35 +4,35 @@
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/tiles_packed.png" type="Texture" id=3]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 1 )
-region = Rect2( 144, 0, 24, 24 )
+region = Rect2( 48, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 1 )
-region = Rect2( 168, 0, 24, 24 )
+region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 1 )
-region = Rect2( 168, 0, 24, 24 )
+region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 1 )
-region = Rect2( 144, 0, 24, 24 )
+region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ SubResource( 1 ) ],
+"frames": [ SubResource( 15 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ SubResource( 16 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 17 ), SubResource( 18 ) ],
 "loop": true,
 "name": "running",
 "speed": 5.0
@@ -135,11 +135,13 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 6, 10 )
+[sub_resource type="CapsuleShape2D" id=19]
+radius = 6.0
+height = 8.0
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 6, 10 )
+[sub_resource type="CapsuleShape2D" id=20]
+radius = 6.0
+height = 8.0
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -164,7 +166,7 @@ anims/RESET = SubResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -10 )
-shape = SubResource( 3 )
+shape = SubResource( 19 )
 
 [node name="LiquidCollisionArea2D" type="Area2D" parent="."]
 collision_layer = 2
@@ -172,7 +174,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LiquidCollisionArea2D"]
 position = Vector2( 0, -10 )
-shape = SubResource( 8 )
+shape = SubResource( 20 )
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
 wait_time = 0.1
