@@ -26,10 +26,7 @@ func on_restart_game():
 	get_tree().reload_current_scene()
 	
 func on_ring_on():
-	tileMap.tile_set.tile_set_material(GRASS, greyScale)
-	tileMap.tile_set.tile_set_material(MUD, greyScale)
-	tileMap.tile_set.tile_set_material(SNOW, greyScale)
-	tileMap.tile_set.tile_set_material(ASH, greyScale)
+#	tileMap.
 	hiddenTilemap.visible = true
 	secretsTilemap.visible = false
 	player.set_collision_mask_bit(4, true)
