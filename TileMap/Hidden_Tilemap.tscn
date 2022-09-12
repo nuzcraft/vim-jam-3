@@ -1,10 +1,14 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://TileMap/ExpandAutotiler.gd" type="Script" id=1]
 [ext_resource path="res://assets/tiles_packed.png" type="Texture" id=2]
 [ext_resource path="res://assets/alt_tiles.png" type="Texture" id=3]
-[ext_resource path="res://TileMap/Greyscale.tres" type="Material" id=4]
+[ext_resource path="res://TileMap/GreyScale.gdshader" type="Shader" id=4]
 [ext_resource path="res://TileMap/TileMapScript.gd" type="Script" id=5]
+
+[sub_resource type="ShaderMaterial" id=88]
+shader = ExtResource( 4 )
+shader_param/greyness = 0.0
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 18, 0, 18, 18, 0, 18 )
@@ -921,10 +925,12 @@ tracks/0/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[node name="TileMap" type="TileMap"]
-material = ExtResource( 4 )
+[node name="Hidden_Tilemap" type="TileMap"]
+material = SubResource( 88 )
 tile_set = SubResource( 21 )
 cell_size = Vector2( 18, 18 )
+collision_layer = 16
+collision_mask = 0
 format = 1
 script = ExtResource( 5 )
 __meta__ = {
