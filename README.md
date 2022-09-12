@@ -64,7 +64,8 @@ Platformer, godot
 - [x] make it so putting on the ring adds or removes collisiosn and blocks
 - [x] make it so putting on the ring changes the player sprite
 - [x] camera follows the player, but is bound to an area
-- [ ] new sprites for hidden blocks - make them glow blue
+- [x] new sprites for hidden blocks - make them glow blue
+- [x] add option for main blocks with one way collisions
 - [ ] allow the player to double jump only when power coin is activated
 - [ ] add water pits
 - [ ] add death animation (maybe like mario when he falls in a pit?)
