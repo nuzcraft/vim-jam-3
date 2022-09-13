@@ -22,6 +22,7 @@ var double_jump = DOUBLE_JUMP_COUNT
 var buffered_jump = false
 var coyote_jump = false
 var ring_on = false
+var dead = false
 
 onready var animatedSprite := $AnimatedSprite
 onready var jumpBufferTimer := $JumpBufferTimer
@@ -118,7 +119,12 @@ func _on_JumpBufferTimer_timeout():
 func _on_CoyoteJumpTimer_timeout():
 	coyote_jump = false
 
-func _on_LiquidCollisionArea2D_body_entered(body):
+func _on_LiquidCollisionArea2D_body_entered(_body):
 #	Events.emit_signal("restart_game")
-	Events.emit_signal("player_died")
+	player_dies()
+	
+func player_dies():
 	state = DEAD
+	dead = true
+	Events.emit_signal("player_died")
+	

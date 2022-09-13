@@ -1,8 +1,8 @@
 extends Node2D
 
-onready var tileMap := $TileMap
-onready var hiddenTilemap := $Hidden_Tilemap
-onready var secretsTilemap := $Secrets_Tilemap
+onready var tileMap := $Tilemaps/TileMap
+onready var hiddenTilemap := $Tilemaps/Hidden_Tilemap
+onready var secretsTilemap := $Tilemaps/Secrets_Tilemap
 onready var player := $Player
 onready var camera2D := $Player/Camera2D
 
@@ -49,13 +49,16 @@ func on_player_died():
 	var x_velocity = rng.randi_range(-45, 45)
 	new_coin.linear_velocity.x = x_velocity
 	new_coin.linear_velocity.y = -100
+	new_coin.angular_velocity = sign(x_velocity)*7
 	new_coin.position = player.global_position
 	new_coin.position.y -= 12
 	add_child(new_coin)
 	
 	var new_corpse = corpse.instance()
 	new_corpse.linear_velocity.x = x_velocity
+	new_corpse.angular_velocity = sign(x_velocity)*7
 	new_corpse.position = player.global_position
+	new_corpse.position.y -= 5
 	add_child(new_corpse)
 	
 	yield(get_tree().create_timer(3),"timeout")
