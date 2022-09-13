@@ -73,5 +73,5 @@ Platformer, godot
 - [ ] add checkpoints
 - [ ] create 3 mini levels to showcase movement + power coin
   - [x] power coin shows hidden blocks
-  - [ ] power coin hides secret blocks
+  - [x] power coin hides secret blocks
   - [ ] power coin allows you to double jump
