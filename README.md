@@ -63,3 +63,15 @@ Platformer, godot
 - [x] make it so the ring adds a funky shader to the screen
 - [x] make it so putting on the ring adds or removes collisiosn and blocks
 - [x] make it so putting on the ring changes the player sprite
+- [x] camera follows the player, but is bound to an area
+- [x] new sprites for hidden blocks - make them glow blue
+- [x] add option for main blocks with one way collisions
+- [x] allow the player to double jump only when power coin is activated
+- [x] add water pits
+- [ ] add death animation (spawn new coin and corpse, camera zooms in on coin, then despawn, go back to checkpoint or restart scene)
+- [ ] add spikes
+- [ ] add checkpoints
+- [ ] create 3 mini levels to showcase movement + power coin
+  - [ ] power coin shows hidden blocks
+  - [ ] power coin hides secret blocks
+  - [ ] power coin allows you to double jump

@@ -43,11 +43,13 @@ func _physics_process(delta):
 			ringSpriteAnimationPlayer.play("put on")
 			Events.emit_signal("ring_on")
 			animatedSprite.modulate = Color(1, 1, 1.2)
+			DOUBLE_JUMP_COUNT = 1
 		else:
 			ring_on = false
 			ringSpriteAnimationPlayer.play("take off")
 			Events.emit_signal("ring_off")
 			animatedSprite.modulate = Color(1, 1, 1)
+			DOUBLE_JUMP_COUNT = 0
 	
 	match state:
 		MOVE: move_state(input, delta)
