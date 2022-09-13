@@ -12,7 +12,8 @@ export(int) var EXTRA_GRAVITY = 300
 export(int) var MAX_GRAVITY = 1200
 
 enum {
-	MOVE
+	MOVE,
+	DEAD,
 }
 
 var velocity = Vector2.ZERO
@@ -53,7 +54,10 @@ func _physics_process(delta):
 	
 	match state:
 		MOVE: move_state(input, delta)
-	
+		DEAD: dead_state()
+func dead_state():
+	visible = false
+
 func move_state(input, delta):
 	apply_gravity(delta)
 	
@@ -115,4 +119,6 @@ func _on_CoyoteJumpTimer_timeout():
 	coyote_jump = false
 
 func _on_LiquidCollisionArea2D_body_entered(body):
-	Events.emit_signal("restart_game")
+#	Events.emit_signal("restart_game")
+	Events.emit_signal("player_died")
+	state = DEAD
