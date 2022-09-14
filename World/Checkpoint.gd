@@ -9,4 +9,5 @@ func _on_Checkpoint_body_entered(body):
 	if not active: return
 	animatedSprite.play("checked")
 	Events.emit_signal("hit_checkpoint", position)
+	SoundPlayer.play_sound(SoundPlayer.CHECKPOINT)
 	active = false

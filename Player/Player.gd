@@ -45,12 +45,14 @@ func _physics_process(delta):
 			ring_on	= true
 			ringSpriteAnimationPlayer.play("put on")
 			Events.emit_signal("ring_on")
+			SoundPlayer.play_sound(SoundPlayer.ON)
 			animatedSprite.modulate = Color(1, 1, 1.2)
 			DOUBLE_JUMP_COUNT = 1
 		else:
 			ring_on = false
 			ringSpriteAnimationPlayer.play("take off")
 			Events.emit_signal("ring_off")
+			SoundPlayer.play_sound(SoundPlayer.OFF)
 			animatedSprite.modulate = Color(1, 1, 1)
 			DOUBLE_JUMP_COUNT = 0
 	
@@ -79,6 +81,7 @@ func move_state(input, delta):
 	if is_on_floor() or coyote_jump:
 		if Input.is_action_just_pressed("ui_up") or buffered_jump:
 			velocity.y = -JUMP_VELOCITY
+			SoundPlayer.play_sound(SoundPlayer.JUMP)
 			buffered_jump = false
 		
 	if not is_on_floor():
@@ -91,6 +94,7 @@ func move_state(input, delta):
 			
 		if Input.is_action_just_pressed("ui_up") and double_jump > 0:
 			velocity.y = -JUMP_VELOCITY
+			SoundPlayer.play_sound(SoundPlayer.JUMP)
 			double_jump -= 1
 			
 		if Input.is_action_just_pressed("ui_up"):
@@ -130,6 +134,7 @@ func player_dies():
 	if ring_on:
 		Events.emit_signal("ring_off")
 	Events.emit_signal("player_died")
+	SoundPlayer.play_sound(SoundPlayer.LOSE)
 	queue_free()
 	
 func connectCamera(camera):

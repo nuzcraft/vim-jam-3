@@ -79,9 +79,9 @@ Platformer, godot
 - [ ] in game tutorial
 - [ ] screen shake
 - [ ] bg music
-- [ ] jump sound effect
-- [ ] ring on sound effect
-- [ ] ring off sound effect
+- [x] jump sound effect
+- [x] ring on sound effect
+- [x] ring off sound effect
 - [ ] checkpoint sound effect
 - [ ] checkpoint particles
-- [ ] death sound effect
+- [x] death sound effect
