@@ -82,6 +82,6 @@ Platformer, godot
 - [x] jump sound effect
 - [x] ring on sound effect
 - [x] ring off sound effect
-- [ ] checkpoint sound effect
+- [x] checkpoint sound effect
 - [ ] checkpoint particles
 - [x] death sound effect
