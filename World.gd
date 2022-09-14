@@ -4,23 +4,27 @@ onready var tileMap := $Tilemaps/TileMap
 onready var hiddenTilemap := $Tilemaps/Hidden_Tilemap
 onready var secretsTilemap := $Tilemaps/Secrets_Tilemap
 onready var player := $Player
-onready var camera2D := $Player/Camera2D
+onready var camera2D := $Camera2D
 
-const greyScale = preload("res://TileMap/Greyscale.tres")
 const coin = preload("res://Coin.tscn")
 const corpse = preload("res://Corpse.tscn")
+const playerScene = preload("res://Player/Player.tscn")
 
 var rng = RandomNumberGenerator.new()
+var player_spawn_location = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player.connectCamera(camera2D)
 	Events.connect("win_game", self, "on_win_game")
 	Events.connect("restart_game", self, "on_restart_game")
 	Events.connect("ring_on", self, "on_ring_on")
 	Events.connect("ring_off", self, "on_ring_off")
 	Events.connect("player_died", self, "on_player_died")
+	Events.connect("hit_checkpoint", self, "on_hit_checkpoint")
 	hiddenTilemap.visible = false
 	hiddenTilemap.disappear()
+	player_spawn_location = player.global_position
 
 func on_win_game():
 	get_tree().change_scene("res://WinScreen.tscn")
@@ -61,5 +65,16 @@ func on_player_died():
 	new_corpse.position.y -= 5
 	add_child(new_corpse)
 	
-	yield(get_tree().create_timer(3),"timeout")
-	get_tree().reload_current_scene()
+	yield(get_tree().create_timer(1.5),"timeout")
+	player = playerScene.instance()
+	player.position = player_spawn_location
+	player.z_index = 10
+	add_child(player)
+	player.connectCamera(camera2D)
+	
+	yield(get_tree().create_timer(1.5),"timeout")
+	new_coin.queue_free()
+	new_corpse.queue_free()
+	
+func on_hit_checkpoint(position):
+	player_spawn_location = position

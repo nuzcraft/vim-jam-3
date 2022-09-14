@@ -30,6 +30,7 @@ onready var coyoteJumpTimer := $CoyoteJumpTimer
 onready var liquidCollisionArea2D := $LiquidCollisionArea2D
 onready var ringSprite := $Ringsprite
 onready var ringSpriteAnimationPlayer := $Ringsprite/AnimationPlayer
+onready var remoteTransform2D := $RemoteTransform2D
 
 func _physics_process(delta):
 	var input = Vector2.ZERO
@@ -126,5 +127,12 @@ func _on_LiquidCollisionArea2D_body_entered(_body):
 func player_dies():
 	state = DEAD
 	dead = true
+	if ring_on:
+		Events.emit_signal("ring_off")
 	Events.emit_signal("player_died")
+	queue_free()
+	
+func connectCamera(camera):
+	var camera_path = camera.get_path()
+	remoteTransform2D.remote_path = camera_path
 	

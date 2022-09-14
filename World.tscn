@@ -29,7 +29,7 @@ tile_data = PoolIntArray( 0, 6, 0, 1, 6, 0, 2, 6, 0, 3, 6, 0, 4, 6, 0, 5, 6, 0, 
 [node name="Tilemaps" type="Node" parent="."]
 
 [node name="Liquids_Tilemap2" parent="Tilemaps" instance=ExtResource( 5 )]
-tile_data = PoolIntArray( 393247, 1, 65537, 393248, 1, 65537, 458783, 1, 65537, 458784, 1, 65537, 524319, 1, 65537, 524320, 1, 65537, 589855, 1, 65537, 589856, 1, 65537, 655391, 1, 65537, 655392, 1, 65537 )
+tile_data = PoolIntArray( 393247, 1, 1, 393248, 1, 1, 458783, 1, 65537, 458784, 1, 65537, 524319, 1, 65537, 524320, 1, 65537, 589855, 1, 131073, 589856, 1, 131073, 655391, 1, 131072, 655392, 1, 131072 )
 
 [node name="Liquids_Tilemap" parent="Tilemaps" instance=ExtResource( 5 )]
 modulate = Color( 1.1, 1, 1, 1 )
@@ -57,10 +57,11 @@ tile_data = PoolIntArray( -65536, 2, 327681, -65535, 2, 262146, -65534, 2, 26214
 tile_data = PoolIntArray( 524306, 8, 327681, 524307, 8, 327682, 524308, 8, 327682, 524309, 8, 327683, 589842, 8, 393217, 589843, 8, 393218, 589844, 8, 393218, 589845, 8, 393219, 589847, 8, 327681, 589848, 8, 327682, 589849, 8, 327683, 655378, 8, 393217, 655379, 8, 393218, 655380, 8, 393218, 655381, 8, 393219, 655383, 8, 393217, 655384, 8, 393218, 655385, 8, 393219, 720914, 8, 458753, 720915, 8, 458754, 720916, 8, 458754, 720917, 8, 458755, 720919, 8, 458753, 720920, 8, 458754, 720921, 8, 458755 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 333, 108 )
+position = Vector2( 72, 72 )
 z_index = 10
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 333, 108 )
 current = true
 limit_left = 0
 limit_top = 0
@@ -112,4 +113,7 @@ position = Vector2( 225, 180 )
 position = Vector2( 207, 180 )
 
 [node name="Checkpoint" parent="." instance=ExtResource( 4 )]
-position = Vector2( 324, 108 )
+position = Vector2( 333, 108 )
+
+[node name="Checkpoint2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 648, 36 )

@@ -187,6 +187,9 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+z_index = 10
+
 [connection signal="body_entered" from="LiquidCollisionArea2D" to="." method="_on_LiquidCollisionArea2D_body_entered"]
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_JumpBufferTimer_timeout"]
 [connection signal="timeout" from="CoyoteJumpTimer" to="." method="_on_CoyoteJumpTimer_timeout"]

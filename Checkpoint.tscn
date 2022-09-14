@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/tiles_packed.png" type="Texture" id=1]
+[ext_resource path="res://Checkpoint.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -31,11 +32,12 @@ animations = [ {
 extents = Vector2( 10, 18 )
 
 [node name="Checkpoint" type="Area2D"]
+script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -27 )
 frames = SubResource( 4 )
-animation = "checked"
+animation = "not checked"
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -47,3 +49,5 @@ region_rect = Rect2( 198, 108, 18, 18 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -18 )
 shape = SubResource( 5 )
+
+[connection signal="body_entered" from="." to="." method="_on_Checkpoint_body_entered"]
