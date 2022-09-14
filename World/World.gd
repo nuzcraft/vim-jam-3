@@ -6,8 +6,8 @@ onready var secretsTilemap := $Tilemaps/Secrets_Tilemap
 onready var player := $Player
 onready var camera2D := $Camera2D
 
-const coin = preload("res://Coin.tscn")
-const corpse = preload("res://Corpse.tscn")
+const coin = preload("res://Player/Coin.tscn")
+const corpse = preload("res://Player/Corpse.tscn")
 const playerScene = preload("res://Player/Player.tscn")
 
 var rng = RandomNumberGenerator.new()
