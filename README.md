@@ -68,10 +68,20 @@ Platformer, godot
 - [x] add option for main blocks with one way collisions
 - [x] allow the player to double jump only when power coin is activated
 - [x] add water pits
-- [ ] add death animation (spawn new coin and corpse, camera zooms in on coin, then despawn, go back to checkpoint or restart scene)
-- [ ] add spikes
-- [ ] add checkpoints
-- [ ] create 3 mini levels to showcase movement + power coin
-  - [ ] power coin shows hidden blocks
-  - [ ] power coin hides secret blocks
-  - [ ] power coin allows you to double jump
+- [x] add death animation (spawn new coin and corpse, camera zooms in on coin, then despawn, go back to checkpoint or restart scene)
+- [x] add spikes
+- [x] add checkpoints
+- [x] create 3 mini levels to showcase movement + power coin
+  - [x] power coin shows hidden blocks
+  - [x] power coin hides secret blocks
+  - [x] power coin allows you to double jump
+- [ ] actual goal (lava)
+- [ ] in game tutorial
+- [ ] screen shake
+- [ ] bg music
+- [ ] jump sound effect
+- [ ] ring on sound effect
+- [ ] ring off sound effect
+- [ ] checkpoint sound effect
+- [ ] checkpoint particles
+- [ ] death sound effect

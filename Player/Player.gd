@@ -12,7 +12,8 @@ export(int) var EXTRA_GRAVITY = 300
 export(int) var MAX_GRAVITY = 1200
 
 enum {
-	MOVE
+	MOVE,
+	DEAD,
 }
 
 var velocity = Vector2.ZERO
@@ -21,6 +22,7 @@ var double_jump = DOUBLE_JUMP_COUNT
 var buffered_jump = false
 var coyote_jump = false
 var ring_on = false
+var dead = false
 
 onready var animatedSprite := $AnimatedSprite
 onready var jumpBufferTimer := $JumpBufferTimer
@@ -28,6 +30,7 @@ onready var coyoteJumpTimer := $CoyoteJumpTimer
 onready var liquidCollisionArea2D := $LiquidCollisionArea2D
 onready var ringSprite := $Ringsprite
 onready var ringSpriteAnimationPlayer := $Ringsprite/AnimationPlayer
+onready var remoteTransform2D := $RemoteTransform2D
 
 func _physics_process(delta):
 	var input = Vector2.ZERO
@@ -53,7 +56,10 @@ func _physics_process(delta):
 	
 	match state:
 		MOVE: move_state(input, delta)
-	
+		DEAD: dead_state()
+func dead_state():
+	visible = false
+
 func move_state(input, delta):
 	apply_gravity(delta)
 	
@@ -114,5 +120,19 @@ func _on_JumpBufferTimer_timeout():
 func _on_CoyoteJumpTimer_timeout():
 	coyote_jump = false
 
-func _on_LiquidCollisionArea2D_body_entered(body):
-	Events.emit_signal("restart_game")
+func _on_LiquidCollisionArea2D_body_entered(_body):
+#	Events.emit_signal("restart_game")
+	player_dies()
+	
+func player_dies():
+	state = DEAD
+	dead = true
+	if ring_on:
+		Events.emit_signal("ring_off")
+	Events.emit_signal("player_died")
+	queue_free()
+	
+func connectCamera(camera):
+	var camera_path = camera.get_path()
+	remoteTransform2D.remote_path = camera_path
+	
