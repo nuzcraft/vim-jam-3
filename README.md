@@ -45,6 +45,9 @@ Platformer, godot
 - triggers that unlock parts of the map?
 - the ring can be used to access more of the map
 
+Contains music ©2021 Joshua McLean (https://joshua-mclean.itch.io)
+Licensed under Creative Commons Attribution 4.0 International
+
 ## NEEDS
 
 - [x] Player w/ good platformer controls
@@ -75,13 +78,15 @@ Platformer, godot
   - [x] power coin shows hidden blocks
   - [x] power coin hides secret blocks
   - [x] power coin allows you to double jump
-- [ ] actual goal (lava)
+- [x] actual goal (lava)
 - [ ] in game tutorial
 - [ ] screen shake
-- [ ] bg music
+- [x] bg music
 - [x] jump sound effect
 - [x] ring on sound effect
 - [x] ring off sound effect
 - [x] checkpoint sound effect
-- [ ] checkpoint particles
+- [x] checkpoint particles
 - [x] death sound effect
+- [ ] title screen
+- [ ] time limit on power coin

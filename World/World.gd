@@ -25,9 +25,10 @@ func _ready():
 	hiddenTilemap.visible = false
 	hiddenTilemap.disappear()
 	player_spawn_location = player.global_position
+	SoundPlayer.play_music(SoundPlayer.FIRST_STORY)
 
 func on_win_game():
-	get_tree().change_scene("res://WinScreen.tscn")
+	get_tree().change_scene("res://World/WinScreen.tscn")
 	
 func on_restart_game():
 	get_tree().reload_current_scene()
