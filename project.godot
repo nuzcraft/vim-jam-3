@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Events="*res://Events.gd"
+SoundPlayer="*res://Sounds/SoundPlayer.tscn"
 
 [display]
 
