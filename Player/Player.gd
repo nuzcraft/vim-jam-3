@@ -31,6 +31,7 @@ onready var liquidCollisionArea2D := $LiquidCollisionArea2D
 onready var ringSprite := $Ringsprite
 onready var ringSpriteAnimationPlayer := $Ringsprite/AnimationPlayer
 onready var remoteTransform2D := $RemoteTransform2D
+onready var powerCoinTimer := $PowerCoinTimer
 
 func _physics_process(delta):
 	var input = Vector2.ZERO
@@ -42,19 +43,9 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("ui_accept"):
 		if not ring_on:
-			ring_on	= true
-			ringSpriteAnimationPlayer.play("put on")
-			Events.emit_signal("ring_on")
-			SoundPlayer.play_sound(SoundPlayer.ON)
-			animatedSprite.modulate = Color(1, 1, 1.2)
-			DOUBLE_JUMP_COUNT = 1
+			put_ring_on()
 		else:
-			ring_on = false
-			ringSpriteAnimationPlayer.play("take off")
-			Events.emit_signal("ring_off")
-			SoundPlayer.play_sound(SoundPlayer.OFF)
-			animatedSprite.modulate = Color(1, 1, 1)
-			DOUBLE_JUMP_COUNT = 0
+			take_ring_off()
 	
 	match state:
 		MOVE: move_state(input, delta)
@@ -132,7 +123,7 @@ func player_dies():
 	state = DEAD
 	dead = true
 	if ring_on:
-		Events.emit_signal("ring_off")
+		take_ring_off()
 	Events.emit_signal("player_died")
 	SoundPlayer.play_sound(SoundPlayer.LOSE)
 	queue_free()
@@ -140,4 +131,25 @@ func player_dies():
 func connectCamera(camera):
 	var camera_path = camera.get_path()
 	remoteTransform2D.remote_path = camera_path
+	
+func _on_PowerCoinTimer_timeout():
+	if ring_on:
+		take_ring_off()
+		
+func take_ring_off():
+	ring_on = false
+	ringSpriteAnimationPlayer.play("take off")
+	Events.emit_signal("ring_off")
+	SoundPlayer.play_sound(SoundPlayer.OFF)
+	animatedSprite.modulate = Color(1, 1, 1)
+	DOUBLE_JUMP_COUNT = 0
+	
+func put_ring_on():
+	ring_on	= true
+	ringSpriteAnimationPlayer.play("put on")
+	Events.emit_signal("ring_on")
+	SoundPlayer.play_sound(SoundPlayer.ON)
+	animatedSprite.modulate = Color(1, 1, 1.2)
+	DOUBLE_JUMP_COUNT = 1
+	powerCoinTimer.start()
 	
