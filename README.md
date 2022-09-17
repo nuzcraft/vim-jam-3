@@ -89,4 +89,7 @@ Licensed under Creative Commons Attribution 4.0 International
 - [x] checkpoint particles
 - [x] death sound effect
 - [ ] title screen
-- [ ] time limit on power coin
+- [x] time limit on power coin
+- [x] finish final level
+- [x] add more extras
+- [ ] better win screen
