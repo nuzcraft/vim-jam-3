@@ -93,3 +93,8 @@ Licensed under Creative Commons Attribution 4.0 International
 - [x] finish final level
 - [x] add more extras
 - [ ] better win screen
+- [x] update controls
+- [ ] update icon
+- [ ] export
+- [ ] create itch page
+- [x] progress bar for coin
