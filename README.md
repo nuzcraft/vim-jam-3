@@ -90,5 +90,6 @@ Licensed under Creative Commons Attribution 4.0 International
 - [x] death sound effect
 - [ ] title screen
 - [x] time limit on power coin
-- [ ] finish final level
-- [ ] add more extras
+- [x] finish final level
+- [x] add more extras
+- [ ] better win screen
