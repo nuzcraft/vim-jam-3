@@ -79,7 +79,7 @@ Licensed under Creative Commons Attribution 4.0 International
   - [x] power coin hides secret blocks
   - [x] power coin allows you to double jump
 - [x] actual goal (lava)
-- [ ] in game tutorial
+- [x] in game tutorial
 - [ ] screen shake
 - [x] bg music
 - [x] jump sound effect
@@ -88,13 +88,13 @@ Licensed under Creative Commons Attribution 4.0 International
 - [x] checkpoint sound effect
 - [x] checkpoint particles
 - [x] death sound effect
-- [ ] title screen
+- [x] title screen
 - [x] time limit on power coin
 - [x] finish final level
 - [x] add more extras
-- [ ] better win screen
+- [x] better win screen
 - [x] update controls
-- [ ] update icon
+- [x] update icon
 - [ ] export
 - [ ] create itch page
 - [x] progress bar for coin
