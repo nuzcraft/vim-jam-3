@@ -95,6 +95,6 @@ Licensed under Creative Commons Attribution 4.0 International
 - [x] better win screen
 - [x] update controls
 - [x] update icon
-- [ ] export
+- [x] export
 - [ ] create itch page
 - [x] progress bar for coin
