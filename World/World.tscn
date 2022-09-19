@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://World/Checkpoint.tscn" type="PackedScene" id=2]
@@ -18,6 +18,10 @@
 [ext_resource path="res://World/Short Grass.tscn" type="PackedScene" id=16]
 [ext_resource path="res://World/Long Grass.tscn" type="PackedScene" id=17]
 [ext_resource path="res://World/Cactus.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/tut_jump.png" type="Texture" id=19]
+[ext_resource path="res://assets/tut_move.png" type="Texture" id=20]
+[ext_resource path="res://assets/tut_power.png" type="Texture" id=21]
+[ext_resource path="res://assets/tut_dbljump.png" type="Texture" id=22]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -153,7 +157,6 @@ position = Vector2( 45, 621 )
 [node name="Right Arrow4" parent="Extras" instance=ExtResource( 11 )]
 position = Vector2( 1229, 536 )
 rotation = 0.785398
-scale = Vector2( 1, 1 )
 
 [node name="Brown Mushroom" parent="Extras" instance=ExtResource( 13 )]
 position = Vector2( 1098, 45 )
@@ -553,3 +556,19 @@ position = Vector2( 1251, 576 )
 
 [node name="Goal3" parent="Goals" instance=ExtResource( 8 )]
 position = Vector2( 1269, 576 )
+
+[node name="TutMove" type="Sprite" parent="."]
+position = Vector2( 108, 27 )
+texture = ExtResource( 20 )
+
+[node name="TutJump" type="Sprite" parent="."]
+position = Vector2( 162, 27 )
+texture = ExtResource( 19 )
+
+[node name="TutPower" type="Sprite" parent="."]
+position = Vector2( 243, 144 )
+texture = ExtResource( 21 )
+
+[node name="TutDbljump" type="Sprite" parent="."]
+position = Vector2( 540, 45 )
+texture = ExtResource( 22 )

@@ -32,6 +32,11 @@ onready var ringSprite := $Ringsprite
 onready var ringSpriteAnimationPlayer := $Ringsprite/AnimationPlayer
 onready var remoteTransform2D := $RemoteTransform2D
 onready var powerCoinTimer := $PowerCoinTimer
+onready var textureProgress := $TextureProgress
+onready var progressBar := $ProgressBar
+
+func _ready():
+	textureProgress.value = powerCoinTimer.wait_time
 
 func _physics_process(delta):
 	var input = Vector2.ZERO
@@ -46,6 +51,8 @@ func _physics_process(delta):
 			put_ring_on()
 		else:
 			take_ring_off()
+			
+	textureProgress.value = powerCoinTimer.time_left
 	
 	match state:
 		MOVE: move_state(input, delta)
