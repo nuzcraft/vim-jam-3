@@ -2,6 +2,8 @@
 
 Game created for Vim Jam 3
 
+https://nuzcraft.itch.io/coin-of-power
+
 https://itch.io/jam/vimjam3
 Runs 9/9-9/19
 Focus: Multi-Use
@@ -80,7 +82,7 @@ Licensed under Creative Commons Attribution 4.0 International
   - [x] power coin allows you to double jump
 - [x] actual goal (lava)
 - [x] in game tutorial
-- [ ] screen shake
+- [x] screen shake
 - [x] bg music
 - [x] jump sound effect
 - [x] ring on sound effect
@@ -96,5 +98,5 @@ Licensed under Creative Commons Attribution 4.0 International
 - [x] update controls
 - [x] update icon
 - [x] export
-- [ ] create itch page
+- [x] create itch page
 - [x] progress bar for coin
